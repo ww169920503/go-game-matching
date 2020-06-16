@@ -69,7 +69,7 @@ $ cd matcher
 $ go test -bench . -test.benchtime 1000000x
 goos: windows
 goarch: amd64
-pkg: github.com/ganlvtech/go-game-matching/matcher
+pkg: github.com/ww169920503/go-game-matching/matcher
 BenchmarkMatcher_Match-4                 1000000              2332 ns/op
 BenchmarkMatcher_Match_1000-4            1000000              3865 ns/op
 ```
@@ -79,10 +79,10 @@ $ cd agent
 $ go test -bench ^BenchmarkHttpMatchingServer_HandleJoin$ -test.benchtime 10000x
 goos: windows
 goarch: amd64
-pkg: github.com/ganlvtech/go-game-matching/agent
+pkg: github.com/ww169920503/go-game-matching/agent
 BenchmarkHttpMatchingServer_HandleJoin-4           10000           1861338 ns/op
 PASS
-ok      github.com/ganlvtech/go-game-matching/agent     19.752s
+ok      github.com/ww169920503/go-game-matching/agent     19.752s
 ```
 
 ```
@@ -90,10 +90,10 @@ $ cd agent
 $ go test -bench ^BenchmarkHttpMatchingServer_HandleJoin_100$ -test.benchtime 100000x
 goos: windows
 goarch: amd64
-pkg: github.com/ganlvtech/go-game-matching/agent
+pkg: github.com/ww169920503/go-game-matching/agent
 BenchmarkHttpMatchingServer_HandleJoin_100-4      100000             57537 ns/op
 PASS
-ok      github.com/ganlvtech/go-game-matching/agent     6.889s
+ok      github.com/ww169920503/go-game-matching/agent     6.889s
 ```
 
 25 个人一组的房间。不使用网络，仅测试匹配性能，单 goroutine 每秒能匹配 50 万人，1000 并发 goroutine 每秒能匹配 30 万人。使用 HTTP 协议，启用 KeepAlive，关闭 Windows Defender，本机测试，单线程循环发送请求、等待回应极慢，100 并发时每秒大约能匹配 1.6 万个玩家，如果服务器和客户端分成两个进程，100 并发时每秒大约能匹配 2.4 万个玩家。
