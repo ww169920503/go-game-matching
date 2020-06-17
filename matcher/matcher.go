@@ -8,6 +8,8 @@ import (
 
 const (
 	TimeGroupCount = 60
+	ScoreUpRadius = 3
+	ScoreDownRadius = 4
 )
 
 type PlayerId string
@@ -299,7 +301,7 @@ func (m *Matcher) MatchForPlayer(id PlayerId, currentTime Time, count int) error
 	startTime := Time(m.playerQueue.GetByRank(1, false).Score())
 	m.IterPlayerCandidates(p, startTime, currentTime, scoreRadius, func(v interface{}) bool {
 		candidate := v.(*Player)
-		if candidate.Group == nil {
+		if candidate.Group == nil && (candidate.Score <= p.Score+ScoreUpRadius || candidate.Score >= p.Score-ScoreDownRadius) {
 			g.Players[i] = candidate
 			i++
 		}

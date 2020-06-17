@@ -1,4 +1,4 @@
-# 游戏匹配服务器
+# 游戏匹配服务器(拷贝自https://github.com/ganlvtech/go-game-matching)
 
 ## 目标
 
