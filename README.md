@@ -1,6 +1,6 @@
-# 游戏匹配服务器(拷贝自https://github.com/ganlvtech/go-game-matching)
+# 游戏匹配服务器(copy form https://github.com/ganlvtech/go-game-matching)
 
-## 目标
+## 目标 
 
 进入匹配队列的玩家都有一个 rank 分数，开始匹配后尽可能匹配到分数相近的玩家。
 
