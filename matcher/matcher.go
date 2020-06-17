@@ -301,7 +301,7 @@ func (m *Matcher) MatchForPlayer(id PlayerId, currentTime Time, count int) error
 	startTime := Time(m.playerQueue.GetByRank(1, false).Score())
 	m.IterPlayerCandidates(p, startTime, currentTime, scoreRadius, func(v interface{}) bool {
 		candidate := v.(*Player)
-		if candidate.Group == nil && (candidate.Score <= p.Score+ScoreUpRadius || candidate.Score >= p.Score-ScoreDownRadius) {
+		if candidate.Group == nil && (candidate.Score <= p.Score+ScoreUpRadius && candidate.Score >= p.Score-ScoreDownRadius) {
 			g.Players[i] = candidate
 			i++
 		}
